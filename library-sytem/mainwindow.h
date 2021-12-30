@@ -23,12 +23,11 @@ mydb.removeDatabase(QSqlDatabase::defaultConnection);
 
     }
     bool connOpen(){
-
         mydb = QSqlDatabase::addDatabase("QSQLITE");
-       mydb.setDatabaseName("C:/Users/alibi/Desktop/database/database.db");
+        mydb.setDatabaseName("C:/Users/alibi/Desktop/database/database.db");
 
        if(!mydb.open()){
-           qDebug()<<("failed to open");
+            qDebug()<<("failed to open");
         return false;
        }
         else{
