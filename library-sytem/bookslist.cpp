@@ -7,19 +7,18 @@ bookslist::bookslist(QWidget *parent) :
 {
     ui->setupUi(this);
     MainWindow connect;
-QSqlQueryModel * modal = new QSqlQueryModel();
-connect.connOpen();
-QSqlQuery *  qry = new QSqlQuery(connect.mydb);
+    QSqlQueryModel * modal = new QSqlQueryModel();
+    connect.connOpen();
+    QSqlQuery *  qry = new QSqlQuery(connect.mydb);
+        
+    qry-> prepare("select * from books ");
+    qry->exec();
+    modal-> setQuery(*qry);
 
-qry-> prepare("select * from books ");
-qry->exec();
-modal-> setQuery(*qry);
+    ui->tableView-> setModel(modal);
 
-
-  ui->tableView-> setModel(modal);
-
-  connect.connClose();
-  qDebug() << (modal->rowCount());
+    connect.connClose();
+    qDebug() << (modal->rowCount());
 }
 
 bookslist::~bookslist()
