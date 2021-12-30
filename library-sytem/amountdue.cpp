@@ -8,7 +8,6 @@ amountdue::amountdue(QWidget *parent , int price) :
     ui->setupUi(this);
     QString s =  QString::number(price);
     ui->textEdit->setText(s);
-
 }
 
 amountdue::~amountdue()
