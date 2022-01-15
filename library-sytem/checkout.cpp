@@ -48,23 +48,21 @@ void checkout::on_comboBox_currentIndexChanged(const QString &arg1)
 
     MainWindow connect;
 
-connect.connOpen();
-
-QSqlQuery qry;
-qry.prepare("select * from books where name='"+name+"' ");
-
+    connect.connOpen();
+    QSqlQuery qry;
+    qry.prepare("select * from books where name='"+name+"' ");
 
 
-if (qry.exec()){
+    if (qry.exec()){
 
- while (qry.next()){
+         while (qry.next()){
 
-     ui->title->setText("Title: " + qry.value(0).toString());
-      ui->price->setText("Price: "+ qry.value(1).toString());
-      ui->status->setText("Status: "+ qry.value(2).toString());
-_price = qry.value(1).toInt();
+               ui->title->setText("Title: " + qry.value(0).toString());
+               ui->price->setText("Price: "+ qry.value(1).toString());
+               ui->status->setText("Status: "+ qry.value(2).toString());
+               _price = qry.value(1).toInt();
 
- }
+           }
 
 
     connect.connClose();
