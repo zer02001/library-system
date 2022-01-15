@@ -23,11 +23,6 @@ checkout::checkout(QWidget *parent) :
     qDebug() << (modal->rowCount());
 
 
-
-
-
-
-
 }
 
 checkout::~checkout()
