@@ -69,52 +69,26 @@ void checkout::on_comboBox_currentIndexChanged(const QString &arg1)
 }
 
 
-
-
-
-
 }
 
 
 void checkout::on_pushButton_clicked()
 {
-MainWindow conn;
+    MainWindow conn;
 
-conn.connOpen();
-QSqlQuery qry;
-qry.prepare("select * from books where name='"+_name+"'");
+    conn.connOpen();
+    QSqlQuery qry;
+    qry.prepare("select * from books where name='"+_name+"'");
 
-int amount = 0 ;
+    int amount = 0 ;
+    amount  = qry.value(1).toInt()
+    conn.connClose();
 
-
-
-amount  = qry.value(1).toInt();
-
-
-
-conn.connClose();
+    _price = amount;
 
 
-
-
-
-
-
-_price = amount;
-
-
-this->hide();
-
-
-
-
+    this->hide();
 }
 int checkout::getprice(){
-
-
-
-
-
-
     return _price;
 }
